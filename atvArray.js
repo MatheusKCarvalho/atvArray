@@ -69,6 +69,94 @@ mostre no terminal as ações restantes
 
 let lista =  ["Escreveu título", "Aplicou negrito", "Inseriu tabela"]
 
-fnDesfazerAcao(lista){
-    
+function fnDesfazerAcao(lista){
+    lista.pop(lista)
+    console.log(lista)
 }
+
+fnDesfazerAcao(lista)
+
+/*
+O responsável pelo almoxarifado precisa conferir quantos itens existem no array ["Camiseta", "Calça", "Tênis", 
+"Boné"] antes de iniciar a contagem física. Crie uma função fnVerificarEstoque(lista) que exiba no terminal a 
+quantidade total de itens usando .length. 
+*/
+
+lista = ["Camiseta", "Calça", "Tênis", "Boné"]
+
+function fnVerificarEstoque(lista){
+   console.log(lista.length)
+}
+
+fnVerificarEstoque(lista)
+
+/*
+Na portaria de um evento, a lista oficial de convidados é ["Lucas", "Mariana", "Thiago", "Beatriz"] e duas pessoas 
+chegam perguntando se estão autorizadas: "Mariana" e "Rafael". Crie uma função fnEstaNaLista(lista, nome) que 
+verifique a presença de cada nome no array e exiba o resultado no terminal. 
+*/
+
+lista = ["Lucas", "Mariana", "Thiago", "Beatriz"]
+
+function fnEstaNaLista(lista, nome){
+    if(lista.includes(nome) == true){
+        console.log(nome + " foi convidado");        
+    }else console.log(nome + " não foi convidado")
+}
+
+fnEstaNaLista(lista, "Mariana")
+fnEstaNaLista(lista, "Rafael")
+
+/*
+Em um mercado, os corredores seguem a ordem ["Arroz", "Feijão", "Açúcar", "Café", "Sal"] e um repositor precisa 
+saber a posição exata de "Café" e conferir se "Macarrão" consta no array. Crie uma função fnConsultarCorredor(lista, 
+item) que retorne ou exiba a posição encontrada ou o aviso de que o item não está no array. 
+*/
+
+let corredores = ["Arroz", "Feijão", "Açúcar", "Café", "Sal"]
+
+function fnConsultarCorredor(lista, item){
+    if (lista.includes(item) == true){
+        let posicaoItem = lista.indexOf(item) + 1
+        console.log(`O ${item} está no corredor ${posicaoItem}`)
+    } else {
+        console.log(`Produto ${item} não foi encontrado!`)
+    }
+}
+
+fnConsultarCorredor(corredores, "Macarrão")
+fnConsultarCorredor(corredores, "Café")
+/*
+A tabela de preços base de um lanche está armazenada em [15.00, 25.00, 40.00] e o segundo item sofreu reajuste 
+para 28.50. Crie uma função fnAtualizarPreco(lista, indice, novoValor) que altere o valor na posição informada e 
+exiba o array modificado no terminal. 
+*/
+
+let basePreco = [16.00, 22.00, 20.00]
+
+function fnAtualizarPreco(lista, indice, novoValor){
+    // length conta o total de valores -> 3
+    if ((lista.length - 1) < indice){
+        console.log(`Produto não encontrado!`)
+    }
+    lista[indice] = novoValor
+
+    console.log(`Novos valores de preços ${lista}`)
+}
+
+fnAtualizarPreco(basePreco, 1, 28.50)
+
+// Para montar o boletim inicial de um estudante com as notas 8.0, 7.5 e 9.0, você precisa agrupar esses valores em 
+// uma única estrutura. Crie uma função fnCriarBoletim(nota1, nota2, nota3) que armazene as três notas em um array e 
+// o exiba ou retorne para conferência. 
+
+
+
+function fnCriarBoletim(nota1,nota2,nota3){
+
+    let nota = [nota1,nota2,nota3]
+    console.log(nota)
+
+}
+
+fnCriarBoletim(6,10,5)
